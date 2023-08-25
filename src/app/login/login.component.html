@@ -1,0 +1,27 @@
+<div id="Container">
+    <h4>Hello! let's get Started</h4>
+    <h6>Sign in to continue.</h6>
+    <form [formGroup]="userForm">
+        <div class="form">
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" formControlName="email" class="form-control"
+                    [ngClass]=" { 'is-invalid': submit && f.email.errors } " />
+                <div *ngIf="submit && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Enter correct email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" formControlName="password" class="form-control"
+                    [ngClass]=" { 'is-invalid': submit && f.password.errors } " />
+                <div *ngIf="submit && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required!</div>
+                    <div *ngIf="f.password.errors.minlength">Password length must be greater than 6!</div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" (click)="login()">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
