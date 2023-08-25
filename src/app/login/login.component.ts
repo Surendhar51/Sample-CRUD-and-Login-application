@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       alert("Invalid Email or Password");
     }
     else {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('dashboard');
     }
   }
 
