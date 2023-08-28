@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
 export class AddComponent implements OnInit {
 
   userForm: FormGroup;
-  len=this.service.Users.length+1;
+  len = this.service.Users.length + 1;
 
   constructor(
     private service: DashboardService,
     private router: Router
-  ) {  }
+  ) { }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
@@ -27,7 +27,7 @@ export class AddComponent implements OnInit {
       role: new FormControl(''),
     })
   }
-
+  
   add() {
     if (this.userForm.valid) {
       this.service.Users.push(this.userForm.value);
