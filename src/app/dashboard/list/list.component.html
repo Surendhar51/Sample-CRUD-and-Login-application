@@ -1,15 +1,20 @@
 <app-navbar></app-navbar>
 <div class="container-fluid col-11 mt-3">
-    <ul *ngIf="Users.length>0">
-        <li *ngFor="let user of Users">
-            <p><b>Name</b> : {{user.name}}</p>
-            <p><b>Email</b> : {{user.email}}</p>
-            <p><b>Mobile</b> : {{user.mobile}}</p>
-            <p><b>Role</b> : {{user.role}}</p>
-            <button class="btn btn-primary mb-5" routerLink="/edit/{{user.id}}">Edit</button>
-       
-        </li>
-      </ul>
-      <h3 *ngIf="Users.length==0" class="text-center">Users Not Found</h3>
+    <table *ngIf="Users.length>0" class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Role</th>           
+        </tr>
+        <tr *ngFor="let user of Users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.mobile}}</td>
+            <td>{{user.role}}</td>
+            <button class="btn btn-primary mt-3" routerLink="/edit/{{user.id}}">Edit</button>
+        </tr>
+    </table>
+    <h3 *ngIf="Users.length==0" class="text-center">Users Not Found</h3>
 </div>
 
