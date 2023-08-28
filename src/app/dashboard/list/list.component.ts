@@ -9,8 +9,6 @@ import { DashboardService } from '../dashboard.service';
 })
 export class ListComponent implements OnInit {
 
-  
-
     Users=[];
 
     constructor( private service:DashboardService) { }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { DashboardService } from '../dashboard.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-edit',
@@ -11,15 +11,16 @@ import { first } from 'rxjs/operators';
 })
 export class EditComponent implements OnInit {
 
+  roleId:Number;
   userForm: FormGroup;
   msg: String = '';
-  user = { id: 0, name: "", email: "", mobile:0,role: "" };
+  user = { id: 0, name: "", email: "", mobile: 0, role: "" };
 
   constructor(
     private service: DashboardService,
     private router: Router,
     private route: ActivatedRoute,
-  ) {  }
+  ) { }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
@@ -31,18 +32,18 @@ export class EditComponent implements OnInit {
     })
 
     this.route.params.subscribe(param => {
-      if(param && param.id){
-        this.user=this.service.getUserId(param.id);
-        if(this.user){
+      if (param && param.id) {
+        this.user = this.service.getUserId(param.id);
+        if (this.user) {
           this.userForm.setValue(this.user);
-          }
+        }
         else this.router.navigate(['/list'])
       }
     })
   }
 
-  Update(){
-    if(this.userForm.valid){
+  Update() {
+    if (this.userForm.valid) {
       this.updateUser(this.userForm.value);
       this.router.navigateByUrl("/list");
     }
@@ -55,9 +56,8 @@ export class EditComponent implements OnInit {
     }
   }
 
-  deleteUser(){
+  deleteUser() {
     this.service.deleteUser(this.user.id);
-    console.log(this.user.id);
     this.router.navigateByUrl("/list");
   }
 }

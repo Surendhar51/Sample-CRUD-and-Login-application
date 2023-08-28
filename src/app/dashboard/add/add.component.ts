@@ -26,8 +26,6 @@ export class AddComponent implements OnInit {
       mobile: new FormControl(''),
       role: new FormControl(''),
     })
-
-    console.log(this.len);
   }
 
   add() {
