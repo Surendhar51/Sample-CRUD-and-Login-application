@@ -30,7 +30,6 @@ export class EditComponent implements OnInit {
       role: new FormControl(''),
     })
 
-
     this.route.params.subscribe(param => {
       if(param && param.id){
         this.user=this.service.getUserId(param.id);

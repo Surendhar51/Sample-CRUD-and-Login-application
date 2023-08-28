@@ -60,5 +60,5 @@ export class DashboardService {
   deleteUser(id: number) {
     this.Users = this.Users.filter(x => x.id !== id);
   }
-
+  
 }
