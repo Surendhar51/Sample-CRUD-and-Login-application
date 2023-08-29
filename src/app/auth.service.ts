@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -18,6 +19,8 @@ export class AuthService {
       password: '123456'
     }
   ];
+
+  constructor(private _router:Router) { }
   session: any;
 
   login(email: string, password: number) {
@@ -26,10 +29,12 @@ export class AuthService {
       this.session = user;
       localStorage.setItem('Session', JSON.stringify(this.session));
     }
-    
     return user;
   }
 
-  constructor() { }
+  logoutsession(){
+    localStorage.removeItem('Session');
+    this._router.navigateByUrl('/login');
+  }
 
 }
