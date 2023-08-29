@@ -10,7 +10,7 @@ export class DashboardService {
     {
       id: 1,
       name: 'Surendhar',
-      email: 'Surendhar@gamil.com',
+      email: 'Surendharofficial51@gamil.com',
       mobile: 9943662031,
       role: 'Admin'
     },
