@@ -51,7 +51,7 @@ export class DashboardService {
   }
 
   getUserId(id: number) {
-    var user = this.Users.find(x => x.id == id);
+    var user = this.Users.find(x => x.id == id);  
     if (user != null) {
       return user;
     }
