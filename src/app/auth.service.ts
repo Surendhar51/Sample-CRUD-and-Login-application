@@ -10,7 +10,7 @@ export class AuthService {
   users: any[] = [
     {
       id: 1,
-      email: 'S@gmail.com',
+      email: 'user@gmail.com',
       password: '123456'
     },
     {
